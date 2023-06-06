@@ -2,8 +2,7 @@ import { Response } from 'express';
 import bcrypt from 'bcrypt';
 import { REGISTER_QUERY, USER_FROM_USERNAME_QUERY } from '../../constants';
 import sqlite3 from 'sqlite3';
-import { formatIP } from '../../utils/formatting';
-import { decrypt } from '../../utils/aes';
+import { formatIP, decrypt } from '../../utils';
 
 export const register = (req: any, res: Response) => {
   const { username, password } = req.body;

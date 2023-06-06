@@ -2,7 +2,7 @@ import express, { Response, NextFunction } from 'express';
 import dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes';
 import cors from 'cors';
-import { db } from './utils/database';
+import { db } from './utils';
 
 dotenv.config();
 

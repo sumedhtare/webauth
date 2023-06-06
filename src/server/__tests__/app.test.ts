@@ -1,6 +1,6 @@
 import request from 'supertest';
 import { app, server } from '../index';
-import { encrypt } from '../../utils/aes';
+import { encrypt } from '../utils';
 
 afterAll((done) => {
   server.close(done);

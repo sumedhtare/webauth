@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../context/authContext';
 import { credentaials, tokenRes, messageRes } from '../types/interface';
 import { useNavigate } from 'react-router-dom';
-import { encrypt } from '../utils/aes';
+import { encrypt } from '../server/utils';
 
 const serverURL: string = process.env.SERVER_URL || 'http://localhost:8000';
 

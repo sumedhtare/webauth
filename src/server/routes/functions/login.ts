@@ -4,8 +4,7 @@ import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 import { SET_USER_ONLINE_QUERY, USER_FROM_USERNAME_QUERY } from '../../constants';
 import sqlite3 from 'sqlite3';
-import { formatIP } from '../../utils/formatting';
-import { decrypt } from '../../utils/aes';
+import { formatIP, decrypt } from '../../utils';
 
 dotenv.config();
 
