@@ -8,11 +8,10 @@ router.post('/register', register);
 
 router.post('/login', login);
 
-router.get('/logged-in-users',authenticateToken, loggedInUsers);
+router.get('/logged-in-users', authenticateToken, loggedInUsers);
 
 router.post('/logout', authenticateToken, logout);
 
 router.get('/users/:id', authenticateToken, users);
-
 
 export default router;

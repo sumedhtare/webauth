@@ -7,24 +7,20 @@ describe('User Registration and Login', () => {
   const password = encrypt('testpassword');
 
   it('should register a new user', async () => {
-    const response = await request(app)
-      .post('/api/register')
-      .send({
-        username: 'testuser',
-        password: password,
-      });
+    const response = await request(app).post('/api/register').send({
+      username: 'testuser',
+      password: password
+    });
 
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('message', 'User registered successfully');
   });
 
   it('should login with valid credentials', async () => {
-    const response = await request(app)
-      .post('/api/login')
-      .send({
-        username: 'testuser',
-        password: password,
-      });
+    const response = await request(app).post('/api/login').send({
+      username: 'testuser',
+      password: password
+    });
 
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('token');
@@ -48,8 +44,8 @@ describe('User Registration and Login', () => {
   });
 
   it('should not access a protected route with an expired token', async () => {
-   
-    const expiredToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY4NTk3OTk5OCwiZXhwIjoxNjg1OTgzNTk4fQ.uHLX-5cNDIqLeMu8qPOHPdprYmsRN1-HBFM2bHuaAWI";
+    const expiredToken =
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY4NTk3OTk5OCwiZXhwIjoxNjg1OTgzNTk4fQ.uHLX-5cNDIqLeMu8qPOHPdprYmsRN1-HBFM2bHuaAWI';
 
     const response = await request(app)
       .get('/api/users/1')

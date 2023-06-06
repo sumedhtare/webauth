@@ -4,8 +4,8 @@ import UserRegistrationPage from '../routes/register';
 
 const mockedUsedNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
-   ...jest.requireActual('react-router-dom'),
-  useNavigate: () => mockedUsedNavigate,
+  ...jest.requireActual('react-router-dom'),
+  useNavigate: () => mockedUsedNavigate
 }));
 
 test('renders login link', () => {

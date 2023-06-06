@@ -4,7 +4,9 @@ import { user as userType } from '../types/interface';
 interface AuthContextProps {
   token: string | null;
   user: userType | null;
+  // eslint-disable-next-line no-unused-vars
   setToken: (token: string | null) => void;
+  // eslint-disable-next-line no-unused-vars
   setUser: (user: userType | null) => void;
 }
 
@@ -12,10 +14,10 @@ export const AuthContext = createContext<AuthContextProps>({
   token: null,
   user: null,
   setToken: () => {},
-  setUser: () => {},
+  setUser: () => {}
 });
 
-export const AuthProvider = ({ children }:any) => {
+export const AuthProvider = ({ children }: any) => {
   const [token, setToken] = useState<string | null>(null);
   const [user, setUser] = useState<userType | null>(null);
 
@@ -28,7 +30,7 @@ export const AuthProvider = ({ children }:any) => {
   };
 
   return (
-    <AuthContext.Provider value={{ token, user, setUser:handleSetUser, setToken:handleSetToken }}>
+    <AuthContext.Provider value={{ token, user, setUser: handleSetUser, setToken: handleSetToken }}>
       {children}
     </AuthContext.Provider>
   );

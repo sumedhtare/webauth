@@ -14,7 +14,10 @@ And
 Open [http://localhost:8000/api](http://localhost:8000/api) to access api.
 
 
+## Please delete auth.db from root dir before starting any test script
+
 ### `yarn test`
+
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
