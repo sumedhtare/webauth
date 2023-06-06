@@ -29,11 +29,11 @@ jobs:
     - name: Install dependencies
       run: yarn install
 
-    - name: Run the eslint script
-      run: yarn eslint
+    - name: Run the lint script
+      run: yarn lint
 
     - name: Run the tests
-      run: yarn test
+      run: yarn test a --watchAll=false
 
     - name: Build
       run: npm run build
