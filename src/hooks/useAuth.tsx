@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { AuthContext } from '../context/authContext';
 import { credentaials, tokenRes, messageRes } from '../types/interface';
 import { useNavigate } from "react-router-dom";
+import { encrypt } from '../utils/aes';
 
 const serverURL: string = process.env.SERVER_URL || 'http://localhost:8000'
 
@@ -16,7 +17,7 @@ export const useAuth = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ username, password }),
+                body: JSON.stringify({ username, password:encrypt(password) }),
             })
             const resJson:tokenRes = await res.json();
             if(resJson.token){
@@ -57,7 +58,7 @@ export const useAuth = () => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ username, password }),
+                    body: JSON.stringify({ username, password:encrypt(password) }),
                 })
                 const resJson: messageRes = await res.json();
                 if(resJson.message){
