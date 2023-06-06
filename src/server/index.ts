@@ -19,8 +19,8 @@ app.use((req: any, res: Response, next: NextFunction) => {
 
 app.use('/api/', userRoutes);
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
 
-export default app;
+export { app, server };

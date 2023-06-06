@@ -1,6 +1,10 @@
 import request from 'supertest';
-import app from '../index';
+import { app, server } from '../index';
 import { encrypt } from '../../utils/aes';
+
+afterAll((done) => {
+  server.close(done);
+});
 
 describe('User Registration and Login', () => {
   let authToken: string;
