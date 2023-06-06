@@ -1,5 +1,5 @@
-import { encrypt, decrypt } from './aes';
+import { decrypt } from './aesDecrypt';
 import { formatIP } from './formatting';
 import { db } from './database';
 
-export { encrypt, decrypt, formatIP, db };
+export { decrypt, formatIP, db };
