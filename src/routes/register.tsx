@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import '../styles/login.scss'
+import '../styles/component.scss'
+import { useAuth } from '../hooks/useAuth';
 
 type UserRegistrationFormData = {
   username: string;
@@ -7,6 +8,8 @@ type UserRegistrationFormData = {
 };
 
 const UserRegistrationPage: React.FC = () => {
+  const { register } = useAuth();
+
   const [formData, setFormData] = useState<UserRegistrationFormData>({
     username: '',
     password: '',
@@ -22,8 +25,7 @@ const UserRegistrationPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Perform form submission logic here
-    console.log(formData);
+    register(formData);
   };
 
   return (
