@@ -1,0 +1,10 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": false,
+  },
+  "eslint.validate": ["javascript"],
+  "editor.rulers": [
+    80
+  ]
+}

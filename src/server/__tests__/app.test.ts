@@ -1,15 +1,17 @@
 import request from 'supertest';
 import app from '../index';
+import { encrypt } from '../../utils/aes';
 
 describe('User Registration and Login', () => {
   let authToken: string;
+  const password = encrypt('testpassword');
 
   it('should register a new user', async () => {
     const response = await request(app)
       .post('/api/register')
       .send({
         username: 'testuser',
-        password: 'testpassword',
+        password: password,
       });
 
     expect(response.status).toBe(200);
@@ -21,7 +23,7 @@ describe('User Registration and Login', () => {
       .post('/api/login')
       .send({
         username: 'testuser',
-        password: 'testpassword',
+        password: password,
       });
 
     expect(response.status).toBe(200);
